@@ -1,0 +1,24 @@
+name: "Multi event Pipeline / Workflow"
+on:
+  push:
+    branches:
+      - main
+      - test
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  on-push:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Running on main/test branch push"
+      - run: echo "running on push event"
+
+  on-pull-request:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Running on pull request to main branch"
+      - run: echo "running on pull request event"
