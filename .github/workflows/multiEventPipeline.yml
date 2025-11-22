@@ -4,6 +4,8 @@ on:
     branches:
       - main
       - test
+  schedule:
+    - cron: '0 10 * * 0'    
   pull_request:
     branches:
       - main
@@ -46,4 +48,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Running on pull request closed"
-        run: echo "running on pull request closed event"          
+        run: echo "running on pull request closed event"    
+
+  on-schedule:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Running on scheduled event"
+        run: echo "running on scheduled event"            
