@@ -12,3 +12,6 @@ jobs:
     steps:
       - name: "Hello world step"
         run: echo "Hello, world!"
+
+      - name: "Show Date and Time"
+        run: date
